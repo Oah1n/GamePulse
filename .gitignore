@@ -1,0 +1,9 @@
+.DS_Store
+.build/
+.dotnet/
+.venv/
+dist/
+Windows/GamePulse.Windows/bin/
+Windows/GamePulse.Windows/obj/
+*.xcuserstate
+xcuserdata/

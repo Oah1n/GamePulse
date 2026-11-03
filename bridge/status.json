@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-10-25T07:00:00Z",
+  "games": [
+    {
+      "id": "genshin",
+      "staminaName": "原粹树脂",
+      "stamina": { "current": 118, "maximum": 200, "capturedAt": "2026-10-25T07:00:00Z", "recoverySecondsPerUnit": 480 },
+      "dailyName": "每日委托",
+      "daily": { "completed": 3, "total": 4 },
+      "checklist": [],
+      "session": "active",
+      "message": "本地数据桥",
+      "updatedAt": "2026-10-25T07:00:00Z"
+    },
+    {
+      "id": "starRail",
+      "staminaName": "开拓力",
+      "stamina": { "current": 214, "maximum": 300, "capturedAt": "2026-10-25T07:00:00Z", "recoverySecondsPerUnit": 360 },
+      "dailyName": "每日训练",
+      "daily": { "completed": 420, "total": 500 },
+      "checklist": [],
+      "session": "active",
+      "message": "本地数据桥",
+      "updatedAt": "2026-10-25T07:00:00Z"
+    },
+    {
+      "id": "zenless",
+      "staminaName": "电量",
+      "stamina": { "current": 164, "maximum": 240, "capturedAt": "2026-10-25T07:00:00Z", "recoverySecondsPerUnit": 360 },
+      "dailyName": "丽都周纪",
+      "daily": { "completed": 300, "total": 400 },
+      "checklist": [],
+      "session": "active",
+      "message": "本地数据桥",
+      "updatedAt": "2026-10-25T07:00:00Z"
+    },
+    {
+      "id": "arknights",
+      "staminaName": "理智",
+      "stamina": { "current": 93, "maximum": 135, "capturedAt": "2026-10-25T07:00:00Z", "recoverySecondsPerUnit": 360 },
+      "dailyName": "日常任务",
+      "daily": { "completed": 8, "total": 10 },
+      "checklist": [],
+      "session": "active",
+      "message": "本地数据桥",
+      "updatedAt": "2026-10-25T07:00:00Z"
+    },
+    {
+      "id": "wutheringWaves",
+      "staminaName": "结晶波片",
+      "stamina": { "current": 176, "maximum": 240, "capturedAt": "2026-10-25T07:00:00Z", "recoverySecondsPerUnit": 360 },
+      "dailyName": "每日活跃",
+      "daily": { "completed": 80, "total": 100 },
+      "checklist": [],
+      "session": "active",
+      "message": "本地数据桥",
+      "updatedAt": "2026-10-25T07:00:00Z"
+    }
+  ]
+}

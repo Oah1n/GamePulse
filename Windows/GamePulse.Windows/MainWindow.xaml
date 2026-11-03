@@ -1,0 +1,122 @@
+<Window x:Class="GamePulse.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GamePulse 游戏脉冲" Width="460" Height="790"
+        MinWidth="420" MinHeight="620" WindowStartupLocation="CenterScreen"
+        Background="#FFF5F6FA">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#F7FFFFFF" BorderBrush="#16000000" BorderThickness="0,0,0,1" Padding="16,14">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border Width="40" Height="40" CornerRadius="12" Background="#397BEA">
+                    <TextBlock Text="◔" Foreground="White" FontSize="25" FontWeight="Bold"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+                <StackPanel Grid.Column="1" Margin="11,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="游戏脉冲" FontSize="18" FontWeight="Bold" Foreground="#FF171922" />
+                    <TextBlock Text="{Binding SourceLabel}" FontSize="12" Foreground="#FF747887" />
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="↻" FontSize="18" ToolTip="立即刷新" Margin="0,0,7,0" Click="Refresh_Click" />
+                    <Button Content="⚙" FontSize="17" ToolTip="设置" Click="Settings_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <ItemsControl ItemsSource="{Binding Games}" Margin="14,10,14,18">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate><StackPanel /></ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter"><Setter Property="Margin" Value="0,0,0,14" /></Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="27" Padding="17" MinHeight="178">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="{Binding GradientStart}" Offset="0" />
+                                    <GradientStop Color="{Binding GradientEnd}" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Border.Effect>
+                                <DropShadowEffect Color="{Binding GradientEnd}" BlurRadius="18" ShadowDepth="5" Opacity="0.28" />
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border Width="42" Height="42" CornerRadius="12" Background="#2CFFFFFF" BorderBrush="#32FFFFFF" BorderThickness="1">
+                                        <TextBlock Text="{Binding Icon}" FontSize="20" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <StackPanel Grid.Column="1" Margin="11,0,8,0" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="Bold" Foreground="White" />
+                                        <TextBlock Text="{Binding Message}" FontSize="11" Foreground="#C8FFFFFF" TextTrimming="CharacterEllipsis" />
+                                    </StackPanel>
+                                    <TextBlock Grid.Column="2" Text="{Binding SessionText}" FontSize="11" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center" />
+                                </Grid>
+
+                                <Grid Grid.Row="1" Margin="0,12,0,11">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="70" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding StaminaName}" FontSize="12" Foreground="#C8FFFFFF" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Current}" FontSize="34" FontWeight="Bold" Foreground="White" />
+                                            <TextBlock Text="{Binding Maximum, StringFormat={} / {0}}" Margin="4,12,0,0" FontSize="13" FontWeight="SemiBold" Foreground="#B8FFFFFF" />
+                                        </StackPanel>
+                                        <TextBlock Text="{Binding FullTimeText}" FontSize="11" Foreground="#B8FFFFFF" />
+                                    </StackPanel>
+                                    <Grid Grid.Column="1" Width="58" Height="58" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <Ellipse Stroke="#30FFFFFF" StrokeThickness="6" />
+                                        <TextBlock Text="{Binding ProgressPercent, StringFormat={}{0}%}" Foreground="White" FontSize="11" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Grid>
+                                </Grid>
+
+                                <Border Grid.Row="2" CornerRadius="14" Background="#21000000" Padding="11,9">
+                                    <StackPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding DailyName}" Foreground="White" FontSize="12" FontWeight="SemiBold" />
+                                            <TextBlock Grid.Column="1" Text="{Binding DailyText}" Foreground="White" FontSize="12" FontWeight="Bold" />
+                                        </Grid>
+                                        <ProgressBar Height="5" Margin="0,7,0,0" Maximum="100" Value="{Binding DailyPercent}" Foreground="White" Background="#32FFFFFF" BorderThickness="0" />
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="#F7FFFFFF" BorderBrush="#16000000" BorderThickness="0,1,0,0" Padding="14,8">
+            <Grid>
+                <TextBlock Text="{Binding StatusText}" Foreground="#FF747887" FontSize="11" VerticalAlignment="Center" />
+                <ProgressBar IsIndeterminate="True" Width="90" Height="4" HorizontalAlignment="Right" Visibility="{Binding BusyVisibility}" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

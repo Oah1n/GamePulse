@@ -1,0 +1,21 @@
+<Window x:Class="GamePulse.Windows.QrLoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="扫码登录" Width="430" Height="540" ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner" Background="#FFF7F8FC">
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="TitleText" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="InstructionText" Grid.Row="1" Margin="0,8,0,18" Foreground="#737785"
+                   TextAlignment="Center" TextWrapping="Wrap"/>
+        <Border Grid.Row="2" Width="310" Height="310" CornerRadius="24" Background="White" Padding="18">
+            <Image x:Name="QrImage" Stretch="Uniform"/>
+        </Border>
+        <StackPanel Grid.Row="3" Margin="0,18,0,0">
+            <TextBlock x:Name="StatusText" Text="正在生成二维码…" TextAlignment="Center" FontWeight="SemiBold"/>
+            <Button Content="取消" Width="90" Margin="0,14,0,0" Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
